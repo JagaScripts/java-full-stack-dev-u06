@@ -1,5 +1,11 @@
 package ejercicio12;
-
+/**
+ * 
+ * @author Jose Antonio González Alcántara
+ * 
+ * Clase de Java de la TA06-Metodos y Arrays Ejercicio 12
+ *
+ */
 public class ejercicio12 {
 
 	public static void main(String[] args) {

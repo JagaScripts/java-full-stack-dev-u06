@@ -7,7 +7,11 @@ import javax.swing.JOptionPane;
 
 /**
  * 
+<<<<<<< HEAD
  * @author Jose Antonio GonzÃ¡lez AlcÃ¡ntara
+=======
+ * @author Jose Antonio González Alcántara
+>>>>>>> 205312ea58cef10a1a9314b7a468c272ad8e67ae
  * 
  * Clase de Java de la TA06-Metodos y Arrays Ejercicio 1
  *

@@ -1,5 +1,6 @@
 package ejercicio1;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -7,11 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  * 
-<<<<<<< HEAD
  * @author Jose Antonio González Alcántara
-=======
- * @author Jose Antonio Gonz�lez Alc�ntara
->>>>>>> 205312ea58cef10a1a9314b7a468c272ad8e67ae
  * 
  * Clase de Java de la TA06-Metodos y Arrays Ejercicio 1
  *
@@ -19,28 +16,33 @@ import javax.swing.JOptionPane;
 public class ejercicio1 {
 
 	public static void main(String[] args) {
-		/*Crea una aplicación que nos calcule
+		/*Crea una aplicaciónn que nos calcule
 		  el área de un circulo, cuadrado o triangulo.
 		  Pediremos que figura queremos calcular su área
 		  y según lo introduccido pedirá los valores 
 		  necesarios para calcular el área.
-		  Crear un método por cad figura para
+		  Crear un método por cada figura para
 		  calcular cada área, este devolverá un número real.
 		  Muestra el resultado por pantalla*/
 		
-		pedirFigura();
+		char opcionFigura;
+		
+		mostrarMenu();
+		opcionFigura = validarCaracterEntrada();
+		seleccionarCalculoFigura(opcionFigura);
+		validarDoubleEntrada();
+
+		
 		
 	}
 	
-	public static String validarEntrada(String valores) {
+	public static double validarDoubleEntrada() {
 		
 		String entradaTeclado;
 		boolean esNumerico;
 		
 		do {
 
-			entradaTeclado = JOptionPane.showInputDialog(
-					"Introduce " + valores + ", el valor tienen que ser númerico," + " el separador decimal es el . (punto)");
 			
 
 			// Si cancelamos el pane
@@ -53,7 +55,7 @@ public class ejercicio1 {
 
 				if (esNumerico) {
 
-					return entradaTeclado;
+					return true;
 
 				} else {
 
@@ -63,7 +65,7 @@ public class ejercicio1 {
 
 			} else {
 				
-				JOptionPane.showMessageDialog(null, "La aplicación se cerrara");
+				JOptionPane.showMessageDialog(null, "La aplicaciÃ³n se cerrara");
 				esNumerico = false;
 			}
 
@@ -73,7 +75,7 @@ public class ejercicio1 {
 		
 	}
 	
-	public static Double calcularAreaCirculo() {
+	public static Double calcularAreaCirculo(String[] valores) {
 
 		// Uso la constante PI de Math y la asigno a mi constante PI
 		final double PI = Math.PI;
@@ -88,16 +90,16 @@ public class ejercicio1 {
 		do {
 
 			entradaTeclado = JOptionPane.showInputDialog(
-					"Introduce el radio, el valor tienen que ser númerico," + " el separador decimal es el . (punto)");
+					"Introduce el radio, el valor tienen que ser nÃºmerico," + " el separador decimal es el . (punto)");
 			
 			areaCirculo = 0.0;
 
 			// Si cancelamos el pane
 			if (entradaTeclado != null) {
 
-				// Como aún no hemos visto manejo de excepciones
+				// Como aÃºn no hemos visto manejo de excepciones
 				// Compruebo mediante el metodo matches del tipo String si lo introducido es un
-				// número
+				// nÃºmero
 				esNumerico = entradaTeclado.matches("[+-]?\\d*(\\.\\d+)?");
 
 				if (esNumerico) {
@@ -127,58 +129,98 @@ public class ejercicio1 {
 		return areaCirculo;
 	}
 	
-	public static void pedirFigura() {
+	public static String pedirFigura() {
 
 		String entradaTeclado;
-		Scanner scanner;
-		boolean esOpcionValida;
-		char opcion;
+		Scanner scanner;		
 
+		System.out.println("Elige el número de la figura que quieres calcular su area");
 		scanner = new Scanner(System.in);
-			
+		entradaTeclado = scanner.nextLine();
+		
+		scanner.close();
+		return entradaTeclado;
+
+	}
+
+	public static void mostrarMenu() {
+		
+		System.out.println("Menú de opciones para calcular areas");
+		System.out.println("1. Circulo (valor por defecto)");
+		System.out.println("2. Triangulo");
+		System.out.println("3. Cuadrado");
+		System.out.println("4. Salir de la apliación");
+		
+	}
+	
+	public static  void seleccionarCalculoFigura(char opcion) {
+		
+		final String CIRCULO[] = {"radio"};
+		final String TRIANGULO[] = {"base","altura"};
+		final String CUADRADO[] = {"lado","lado"};
+		
+		switch (opcion) {
+		case '1':
+			JOptionPane.showMessageDialog(null,"El area del circulo es " + calcularAreaCirculo(CIRCULO));
+			break;
+		case '2':
+			JOptionPane.showMessageDialog(null,"El area del circulo es " + calcularAreaTriangulo(TRIANGULO));
+			break;
+		case '3':
+			JOptionPane.showMessageDialog(null,"El area del circulo es " + calcularAreaCuadrado(CUADRADO));
+			break;
+		case '4':
+			JOptionPane.showMessageDialog(null,"Se cerrara la aplición");
+			break;
+		default:
+			System.out.println("Elige una opción válida");
+			break;
+		}
+		
+	}
+	
+	public static char validarCaracterEntrada() {
+		
+		String entradaTeclado;
+		boolean esOpcionValida;			
 
 		do {
-
-			System.out.println("Menú de opciones para calcular areas");
-			System.out.println("1. Circulo");
-			System.out.println("2. Triangulo");
-			System.out.println("3. Cuadrado");
-			System.out.println("Elige el número de la figura que quieres calcular su area");
-			entradaTeclado = scanner.nextLine();
+			
+			entradaTeclado = pedirFigura();
+			
 			esOpcionValida = (entradaTeclado.length() == 1);
 
-			if (esOpcionValida) {
-
-				opcion = (char) entradaTeclado.charAt(0);
-
-				switch (opcion) {
-				case '1':
-					// Mostramos resultado en pantalla
-					JOptionPane.showMessageDialog(null,"El area del circulo es " + calcularAreaCirculo());
-					break;
-				case '2':
-					JOptionPane.showMessageDialog(null,"El area del circulo es " + calcularAreaCirculo());
-					break;
-				case '3':
-					JOptionPane.showMessageDialog(null,"El area del circulo es " + calcularAreaCirculo());
-					break;
-				default:
-					System.out.println("Elige una opción válida");
-					esOpcionValida = false;
-					break;
-				}
-
-			} else {
+			if (!esOpcionValida) {
 				
 				System.out.println("Porfavor introduce un solo caracter");
-				esOpcionValida = false;
 				
 			}
 
 		} while (!esOpcionValida);
+		
+		return (char) entradaTeclado.charAt(0);
+		
+	}
+	
+	public static String pedirValoresFigura(String nombreValor, int numeroalores) {
 
-		scanner.close();
+		String entradaTeclado;
+		
+		for (int valo = 0; valo < array.length; valo++) {
+			
+		}
+		entradaTeclado = JOptionPane.showInputDialog(
+				"Introduce " + mensaje + ", el valor tienen que ser númerico," + " el separador decimal es el . (punto)");
+		
+		return entradaTeclado;
 
+	}
+	
+	public static void calcularAreaTriangulo(String[] valores) {
+		
+	}
+	public static void calcularAreaCuadrado(String[] valores) {
+		
 	}
 
 }

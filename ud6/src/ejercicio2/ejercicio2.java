@@ -69,6 +69,7 @@ public class ejercicio2 {
 		
 	}
 	
+	//valida el rango para asegurars que el usuario introduce un rango correcto
 	public static boolean validarRangoEntrada(int[] rangoValores) {
 		
 		int rango;
@@ -84,6 +85,7 @@ public class ejercicio2 {
 		return true;
 	}
 
+	//valida netrada como un número natural
 	public static boolean validarNumeroNaturalEntrada(String entradaTeclado) {
 
 		// Si cancelamos el pane
@@ -120,7 +122,7 @@ public class ejercicio2 {
 
 	}
 	
-	
+	//genera un numero aleatorio segun un rango
 	public static int generarNumeroAleatorio(int numBase, int numTope){
 		
 		Random random;
@@ -131,6 +133,7 @@ public class ejercicio2 {
 		return numeroAleatorio;
 	}
 	
+	//genera numeros aleatorios dependiendo de una cantidad y un rango
 	public static int[] generarNumerosAleatorios(int cantidad, int[] rango) {
 		
 		int numerosAleatorios[] = new int[cantidad];
@@ -144,6 +147,7 @@ public class ejercicio2 {
 		return numerosAleatorios;
 	}
 	
+	//muestra el indice y contenido de una array por filas 
 	public static void mostrarArrayNumeros(int[] arrayNumeros) {
 		
 		String mensaje;

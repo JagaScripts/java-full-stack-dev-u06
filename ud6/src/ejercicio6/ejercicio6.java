@@ -19,27 +19,29 @@ public class ejercicio6 {
 		
 		
 		String entradaTeclado;
-		double numeroValidar;
+		int numeroValidar;
 		
 		do {
 			
 			entradaTeclado = JOptionPane.showInputDialog("Introduce el número \n"
 													   + "que quieres contar las cifras"
-													   + " (tiene que ser un entero positivo)");
+													   + " (tiene que ser un entero positivo "
+													   + "y no más de 9 cifras)");
 			
 		} while (!validarEnteroEntrada(entradaTeclado));
 		
-		numeroValidar = Double.parseDouble(entradaTeclado);
+		numeroValidar = Integer.parseInt(entradaTeclado);
 		
 		JOptionPane.showMessageDialog(null, "Las cifras del número " + numeroValidar  
-										  + " son " + cuentaCifras(numeroValidar));
+										+ " son " + cuentaCifras(numeroValidar));
 		
 
 	}
 	
-	public static int cuentaCifras(double numero) {
+	public static int cuentaCifras(int numero) {
 		
 		String cifras;
+			
 		cifras = String.valueOf(numero);
 		
 		return cifras.length();
@@ -51,8 +53,9 @@ public class ejercicio6 {
 		if (entradaTeclado != null) {
 			
 			if (!entradaTeclado.isEmpty()) {
+				
 
-				if(entradaTeclado.matches("-?\\d+") && !(Double.parseDouble(entradaTeclado) < 0)) {
+				if(entradaTeclado.matches("[^-]\\d+") && entradaTeclado.length() <= 9) {
 					
 					return true;
 					

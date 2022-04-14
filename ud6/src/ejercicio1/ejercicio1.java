@@ -60,6 +60,7 @@ public class ejercicio1 {
 			
 		}
 		
+		//seleccionamos la figura calculamos y mostramos por pantalla		
 		switch (opcionFigura) {
 		case '1':
 			JOptionPane.showMessageDialog(null,"El area del circulo es de " 
@@ -87,6 +88,7 @@ public class ejercicio1 {
 		
 	}
 	
+	//metodo que valida la entrada como double
 	public static boolean validarDoubleEntrada(String entradaTeclado) {
 		
 		boolean esNumerico;
@@ -114,7 +116,7 @@ public class ejercicio1 {
 		return esNumerico;
 		
 	}
-	
+	//metod calcula el area del circulo
 	public static Double calcularAreaCirculo(double radio) {
 		
 		// Calculamos el area del circulo
@@ -123,6 +125,7 @@ public class ejercicio1 {
 
 	}
 	
+	//metodo que muestra el menu y reclama la entrada
 	public static String pedirFigura() {
 
 		String entradaTeclado = JOptionPane.showInputDialog(null,"Menú de opciones para calcular areas \n"
@@ -136,7 +139,8 @@ public class ejercicio1 {
 		return entradaTeclado;
 
 	}
-                  
+             
+	//Metodo para validar la entrada
 	public static boolean validarCaracterEntrada(String entradaTeclado) {
 		
 		boolean esOpcionValida;
@@ -154,8 +158,6 @@ public class ejercicio1 {
 					
 					esOpcionValida = true;
 				}
-				
-				
 
 			}else {
 				
@@ -175,12 +177,14 @@ public class ejercicio1 {
 		
 	}
 	
-	
+	//metodo para calcular el area del triangulo
 	public static double calcularAreaTriangulo(double base, double altura) {
 		
 		return (base * altura) / 2;
 		
 	}
+	
+	//metod calcular area del triangulo
 	public static double calcularAreaCuadrado(double lado1, double lado2) {
 		
 		return lado1 * lado2;

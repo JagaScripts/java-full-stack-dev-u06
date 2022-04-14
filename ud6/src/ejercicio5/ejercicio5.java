@@ -42,6 +42,7 @@ public class ejercicio5 {
 		JOptionPane.showMessageDialog(null, "El número en base decimal " + numeroDecimal + " en binario es " + binario);
 	}
 	
+	//convierte de forma recursiva un decimal a binario
 	public static String convertirDecimalABinario(int numeroDecimal, String binario) {
 		
 		if (numeroDecimal < 2) {
@@ -57,6 +58,8 @@ public class ejercicio5 {
 		
 		return binario;
 	}
+	
+	//valida entrada
 	public static boolean validarEnteroEntrada(String entradaTeclado) {
 
 		// Si cancelamos el pane

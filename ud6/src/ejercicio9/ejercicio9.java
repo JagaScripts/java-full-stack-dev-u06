@@ -15,20 +15,12 @@ public class ejercicio9 {
 
 	public static void main(String[] args) {
 		
-		int array[];
-		
-		array = creaArray();
-		
-
-	}
-	
-	public static int[] creaArray() {
-		
 		String entradaTeclado;
+		
 		do {
 			
-			entradaTeclado = JOptionPane.showInputDialog("Introduce el número \n"
-													   + "que quieres como valor n " + i 
+			entradaTeclado = JOptionPane.showInputDialog("Introduce la cantidad de números  \n"
+													   + " que quieres generar"
 													   + " (tiene que ser un entero positivo)");
 			
 		} while (!validarEnteroEntrada(entradaTeclado));
@@ -37,23 +29,21 @@ public class ejercicio9 {
 		
 		int array[] = new int[tamano];
 		
-		return array;
+		rellenarArrayAleatorios(0, 9, array);
 		
+		mostrarSumarArray(array);
+		
+
 	}
 	
-	public static int[] rellenarArrayAleatorios(int numBase, int numTope) {
+
+	public static void rellenarArrayAleatorios(int numBase, int numTope, int[] array) {
 		
 		for (int i = 0; i < array.length; i++) {
-			
+			array[i] = generarNumeroAleatorio(numBase, numTope);
 		}
-		
-		Random random;
-		int numeroAleatorio; 
-
-		random = new Random();
-	    numeroAleatorio = numBase + random.nextInt((numTope+1) - numBase);
-		
-		return null;
+				
+	
 	}
 	
 	public static boolean validarEnteroEntrada(String entradaTeclado) {
@@ -89,6 +79,36 @@ public class ejercicio9 {
 
 		return false;
 
+	}
+	
+	public static int generarNumeroAleatorio(int numBase, int numTope){
+		
+		Random random;
+		int numeroAleatorio; 
+
+		random = new Random();
+	    numeroAleatorio = numBase + random.nextInt((numTope+1) - numBase);
+		return numeroAleatorio;
+	}
+	
+	public static void mostrarSumarArray(int[] array) {
+		
+		int total;
+		String mensajeArray;
+		
+		total = 0;
+		mensajeArray = "Array de números aleatorios \n";
+		
+		for (int i = 0; i < array.length; i++) {
+			
+			mensajeArray += "El indice de la array es " + i 
+					 + " y el valor de la posicion correspondiente es " + array[i] + "\n ";
+			total += array[i];
+			
+		}
+		
+		mensajeArray += "La suma de la arrayAleatoria es " + total;
+		JOptionPane.showMessageDialog(null, mensajeArray);
 	}
 
 }

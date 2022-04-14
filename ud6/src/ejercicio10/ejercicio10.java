@@ -60,6 +60,7 @@ public class ejercicio10 {
 		int numeromayor = 0;
 
 		for (int i = 0; i < array.length; i++) {
+			
 			if (numeromayor < array[i]) {
 				
 				numeromayor = array[i];

@@ -38,6 +38,7 @@ public class ejercicio6 {
 
 	}
 	
+	//cuenta las cifras de un numero
 	public static int cuentaCifras(int numero) {
 		
 		String cifras;
